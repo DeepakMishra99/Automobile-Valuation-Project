@@ -36,7 +36,7 @@ class ModelTrainer:
             params={
                 
                 "Random Forest":{
-                    "n_estimators": [500], "min_samples_split": [2], "max_features": [7], "max_depth": [15],"n_jobs":[-1]
+                    "n_estimators": [100], "min_samples_split": [2], "max_features": [7], "max_depth": [15],"n_jobs":[-1]
                 },
                 
             }

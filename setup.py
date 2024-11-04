@@ -18,7 +18,7 @@ def get_requirements(file_path:str) -> List[str]:
 
 
 setup(
-    name='Automobile_Valuation_Project',
+    name='Automobile_Valuation',
     version='0.0.1',
     author='Deepak Mishra',
     author_email='mishradeepak0101gmail.com',
