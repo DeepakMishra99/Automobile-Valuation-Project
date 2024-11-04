@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Student Exam Performance Indicator</title>
+    <style>
+        label{
+            font-weight:bold;
+            color:#2471a3 ;
+        }
+        #result{
+            font-weight: bold;
+            color: #fdfefe;
+            background-color:#b03a2e;
+
+        }
+        #predict{
+            font-weight: bold;
+            color: #fdfefe;
+            background-color:#2874a6 ;
+        }
+    </style>
+</head>
+<body>
+ <nav class="navbar navbar-dark bg-dark " >
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Automobile Valuation</span>
+  </div>
+</nav>
+    <div class="container mt-5">
+        <div class="login">
+           
+            <form action="{{ url_for('predict_datapoint') }}" method="post" class="col-8 mx-auto row mb-3 card p-3 shadow-lg">
+               
+
+                    <div class="form-group">
+                        <label for="gender">Model</label>
+                        <select class="form-control" name="gender" id="gender" required>
+                            <option class="placeholder" selected disabled value="">Select your Gender</option>
+                            <option value="Alto">Alto</option>
+                            <option value="Grand">Grand</option>
+                            <option value="i20">i20</option>
+                            <option value="Ecosport">Ecosport</option>
+                            <option value="Wagon R">Wagon R</option>
+                            <option value="i10">i10</option>
+                            <option value="Venue">Venue</option>
+                            <option value="Swift">Swift</option>
+                            <option value="Verna">Verna</option>
+                            <option value="Duster">Duster</option>
+                            <option value="Cooper">Cooper</option>
+                            <option value="Ciaz">Ciaz</option>
+                            <option value="C-Class">C-Class</option>
+                            <option value="Innova">Innova</option>
+                            <option value="Baleno">Baleno</option>
+                            <option value="Swift Dzire">Swift Dzire</option>
+                            <option value="Vento">Vento</option>
+                            <option value="Creta">Creta</option>
+                            <option value="City">City</option>
+                            <option value="Bolero">Bolero</option>
+                            <option value="Fortuner">Fortuner</option>
+                            <option value="KWID">KWID</option>
+                            <option value="Amaze">Amaze</option>
+                            <option value="Santro">Santro</option>
+                            <option value="XUV500">XUV500</option>
+                            <option value="KUV100">KUV100</option>
+                            <option value="Ignis">Ignis</option>
+                            <option value="RediGO">RediGO</option>
+                            <option value="Scorpio">Scorpio</option>
+                            <option value="Marazzo">Marazzo</option>
+                            <option value="Aspire">Aspire</option>
+                            <option value="Figo">Figo</option>
+                            <option value="Vitara">Vitara</option>
+                            <option value="Tiago">Tiago</option>
+                            <option value="Polo">Polo</option>
+                            <option value="Seltos">Seltos</option>
+                            <option value="Celerio">Celerio</option>
+                            <option value="GO">GO</option>
+                            <option value="5">5</option>
+                            <option value="CR-V">CR-V</option>
+                            <option value="Endeavour">Endeavour</option>
+                            <option value="KUV">KUV</option>
+                            <option value="Jazz">Jazz</option>
+                            <option value="3">3</option>
+                            <option value="A4">A4</option>
+                            <option value="Tigor">Tigor</option>
+                            <option value="Ertiga">Ertiga</option>
+                            <option value="Safari">Safari</option>
+                            <option value="Thar">Thar</option>
+                            <option value="Hexa">Hexa</option>
+                            <option value="Rover">Rover</option>
+                            <option value="Eeco">Eeco</option>
+                            <option value="A6">A6</option>
+                            <option value="E-Class">E-Class</option>
+                            <option value="Q7">Q7</option>
+                            <option value="Z4">Z4</option>
+                            <option value="6">6</option>
+                            <option value="XF">XF</option>
+                            <option value="X5">X5</option>
+                            <option value="Hector">Hector</option>
+                            <option value="Civic">Civic</option>
+                            <option value="D-Max">D-Max</option>
+                            <option value="Cayenne">Cayenne</option>
+                            <option value="X1">X1</option>
+                            <option value="Rapid">Rapid</option>
+                            <option value="Freestyle">Freestyle</option>
+                            <option value="Superb">Superb</option>
+                            <option value="Nexon">Nexon</option>
+                            <option value="XUV300">XUV300</option>
+                            <option value="Dzire VXI">Dzire VXI</option>
+                            <option value="S90">S90</option>
+                            <option value="WR-V">WR-V</option>
+                            <option value="XL6">XL6</option>
+                            <option value="Triber">Triber</option>
+                            <option value="ES">ES</option>
+                            <option value="Wrangler">Wrangler</option>
+                            <option value="Camry">Camry</option>
+                            <option value="Elantra">Elantra</option>
+                            <option value="Yaris">Yaris</option>
+                            <option value="GL-Class">GL-Class</option>
+                            <option value="7">7</option>
+                            <option value="S-Presso">S-Presso</option>
+                            <option value="Dzire LXI">Dzire LXI</option>
+                            <option value="Aura">Aura</option>
+                            <option value="XC">XC</option>
+                            <option value="Ghibli">Ghibli</option>
+                            <option value="Continental">Continental</option>
+                            <option value="CR">CR</option>
+                            <option value="Kicks">Kicks</option>
+                            <option value="S-Class">S-Class</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vehicle_age">Vehicle Age</label>
+                        <input class="form-control" type="number" name="vehicle_age" id="vehicle_age" placeholder="Enter your Vechicle Age" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="km_driven">Kilometer Driven</label>
+                        <input class="form-control" type="number" name="km_driven" id="km_driven" placeholder="Enter your KM Driven" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seller_type">Seller Type</label>
+                        <select class="form-control" name="seller_type" id="seller_type" required>
+                            <option class="placeholder" selected disabled value="">Select Seller Type</option>
+                            <option value="Individual">Individual</option>
+                            <option value="Dealer">Dealer</option>
+                            <option value="Trustmark Dealer">Trustmark Dealer</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fuel_type">Fuel Type</label>
+                        <select class="form-control" name="fuel_type" id="fuel_type" required>
+                            <option class="placeholder" selected disabled value="">Select Fuel Type</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="CNG">CNG</option>
+                            <option value="LPG">LPG</option>
+                            <option value="Electric">Electric</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transmission_type">Transmission Type</label>
+                        <select class="form-control" name="transmission_type" id="transmission_type" required>
+                            <option class="placeholder" selected disabled value="">Select Transmission Type</option>
+                            <option value="Manual">Manual</option>
+                            <option value="Automatic">Automatic</option>
+                        </select>
+                    </div>
+
+                   <div class="form-group">
+                        <label for="mileage"> Mileage</label>
+                        <input class="form-control" type="number" name="mileage" id="mileage" placeholder="Enter mileage" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="engine">Engine</label>
+                        <input class="form-control" type="number" name="engine" id="engine" placeholder="Enter engine" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="max_power">Max Power</label>
+                        <input class="form-control" type="number" name="max_power" id="max_power" placeholder="Enter max_power" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seats">Seats</label>
+                        <input class="form-control" type="number" name="seats" id="seats" placeholder="Enter seats" required />
+                    </div>
+
+                    <div class="form-group text-center">
+                        <input class="btn btn-primary" type="submit" value="Car Price Predictation" id="predict"/>
+                    </div>
+                    <div class="form-group text-center">
+                    <h3 class="text-center" id="result">
+                         Car Price Value :  {{results}}
+                    </h3>
+                    </div>
+                </fieldset>
+            </form>
+            
+        </div>
+    </div>
+
+  </body>
+  </html> 
